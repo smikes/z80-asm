@@ -120,4 +120,4 @@ cpu.a: execute.o decode-table.o decode.o memory.o ports.o
 $(ASM): z80-asm.o dummy.o asm.a console.o $(HW)
 	gcc -lc -o $(ASM) z80-asm.o dummy.o asm.a console.o $(HW) z80-cpu.o
 $(MONI): z80-mon.o cpu.a console.o asm.a $(HW)
-	gcc -lc -o $(MONI) z80-mon.o cpu.a console.o asm.a z80-asm.o $(HW)
+	gcc -lc -o $(MONI) z80-mon.o cpu.a console.o asm.a z80-cpu.o $(HW)
