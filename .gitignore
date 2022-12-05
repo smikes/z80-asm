@@ -1,1 +1,10 @@
 *~
+*.o
+*.a
+hardware/hardware_clock
+hardware/lcd_display
+hardware/make_ports
+hardware/monitor_cpu
+hardware/port_io
+z80-asm
+z80-mon
