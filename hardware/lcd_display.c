@@ -143,3 +143,9 @@ int main(void)
 end:  c_shutdown();
    return 0;
 }
+
+void
+error(int l,char *line,char *txt)
+{
+fprintf(stderr,"%s\nline %d: %s\n",line,l,txt);
+}
