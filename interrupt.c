@@ -129,7 +129,7 @@ dump_cpu(char *filename)
   a= (IFF0&1) | (IFF1&1)<<1 | (IFF2&1)<<2;
   a|= (cpu_pin[halt]&1) << 3;
   a|= (IM&3) << 4;
-  a|= (cpu_pin[wait]&1) << 6;
+  a|= (cpu_pin[_wait]&1) << 6;
   a|= (cpu_pin[inter]&1) << 7;
   i=0;
   buffer[i++]= I;

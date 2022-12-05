@@ -28,7 +28,7 @@ extern bit  IFF3;      /* NMI has occured */
    busrq    external hardware requests bus control
    busack   cpu acknowledges bus control
 *********************/
-enum cpu_control_pin { rd, wr, iorq, mreq, m1, inter, halt, wait, reset, rfsh,
+enum cpu_control_pin { rd, wr, iorq, mreq, m1, inter, halt, _wait, reset, rfsh,
                        busrq, busack };
 extern const bit cpu_pin[NO_CPU_CONTROL_PINS];
 

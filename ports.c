@@ -63,9 +63,9 @@ out_byte(unsigned char id, unsigned char data)
 #endif
    if (!cpu_is_in_disassemble)
    {  wait_tics(TICS_MEMO);
-      set_cpu_pin(wait,1);
+      set_cpu_pin(_wait,1);
       wait_tics(TICS_WAIT);
-      set_cpu_pin(wait,0);
+      set_cpu_pin(_wait,0);
    }
    set_cpu_pin(iorq,0);
    set_cpu_pin(wr,0);
@@ -89,9 +89,9 @@ in_byte(unsigned char id, unsigned char *data)
 #endif
    if (!cpu_is_in_disassemble)
    {  wait_tics(TICS_MEMO);
-      set_cpu_pin(wait,1);
+      set_cpu_pin(_wait,1);
       wait_tics(TICS_WAIT);
-      set_cpu_pin(wait,0);
+      set_cpu_pin(_wait,0);
    }
    if (id == fd_in)
    {  keystrobe(data);

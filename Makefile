@@ -109,15 +109,15 @@ keyboard.o: keyboard.c console.h
 asm.a: z80-cpu.o asm.o hash.o compile.o regs.o instr.o interrupt.o file.o \
        expression.o mini-display.o keyboard.o
 	$(RM) asm.a
-	ar rcs asm.a z80-cpu.o asm.o hash.o compile.o regs.o instr.o interrupt.o \
-                 expression.o mini-display.o keyboard.o file.o
+	ar rcs asm.a asm.o hash.o compile.o regs.o instr.o interrupt.o \
+                 expression.o mini-display.o keyboard.o file.o z80-cpu.o
 
 cpu.a: execute.o decode-table.o decode.o memory.o ports.o
 	$(RM) cpu.a
 	ar rcs cpu.a execute.o decode-table.o decode.o memory.o ports.o
 
 
-$(ASM): z80-asm.o dummy.o asm.a $(HW)
-	gcc -lc -o $(ASM) z80-asm.o dummy.o asm.a $(HW)
+$(ASM): z80-asm.o dummy.o asm.a console.o $(HW)
+	gcc -lc -o $(ASM) z80-asm.o dummy.o asm.a console.o $(HW) z80-cpu.o
 $(MONI): z80-mon.o cpu.a console.o asm.a $(HW)
-	gcc -lc -o $(MONI) z80-mon.o cpu.a console.o asm.a $(HW)
+	gcc -lc -o $(MONI) z80-mon.o cpu.a console.o asm.a z80-asm.o $(HW)
